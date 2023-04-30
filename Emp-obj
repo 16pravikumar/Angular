@@ -1,0 +1,81 @@
+//Print the Employe object in array
+let obj1:any=[
+    {name:"Praveen",id:101},
+    {name:"Bhanu",id:102},
+    {name:"Vikas",id:103}
+]
+let obj2:any=[
+    {name:"Saurav",id:104},
+     {name:"Bhanu",id:105}
+]
+obj1.push(obj2);
+console.log(obj1);
+
+let studentDetails = [
+  { studentId: 1, studentName: 'Sathish', gender: 'Male', age: 15 },
+  { studentId: 2, studentName: 'kumar', gender: 'Male', age: 16 },
+  { studentId: 3, studentName: 'Roja', gender: 'Female', age: 15 },
+  {studentId: 4, studentName: 'Nayanthara', gender: 'Female', age: 16},
+];
+
+let studentMark = [
+  { studentId: 1, mark1: 80, mark2: 90, mark3: 100 },
+  { studentId: 2, mark1: 80, mark2: 90, mark3: 100 },
+  { studentId: 3, mark1: 80, mark2: 90, mark3: 100 },
+  { studentId: 4, mark1: 80, mark2: 90, mark3: 100 },
+];
+const mergeById = (array1, array2) =>
+    array1.map(itm => ({
+      ...array2.find((item) => (item.studentId === itm.studentId) && item),
+      ...itm
+    }));
+    let result = mergeById(studentDetails, studentMark);
+    console.log(result);
+    
+    /* Output------------------------------------
+    [
+  { name: 'Praveen', id: 101 },
+  { name: 'Bhanu', id: 102 },
+  { name: 'Vikas', id: 103 },
+  [ { name: 'Saurav', id: 104 }, { name: 'Bhanu', id: 105 } ]
+]
+[
+  {
+    studentId: 1,
+    mark1: 80,
+    mark2: 90,
+    mark3: 100,
+    studentName: 'Sathish',
+    gender: 'Male',
+    age: 15
+  },
+  {
+    studentId: 2,
+    mark1: 80,
+    mark2: 90,
+    mark3: 100,
+    studentName: 'kumar',
+    gender: 'Male',
+    age: 16
+  },
+  {
+    studentId: 3,
+    mark1: 80,
+    mark2: 90,
+    mark3: 100,
+    studentName: 'Roja',
+    gender: 'Female',
+    age: 15
+  },
+  {
+    studentId: 4,
+    mark1: 80,
+    mark2: 90,
+    mark3: 100,
+    studentName: 'Nayanthara',
+    gender: 'Female',
+    age: 16
+  }
+]
+
+    */
